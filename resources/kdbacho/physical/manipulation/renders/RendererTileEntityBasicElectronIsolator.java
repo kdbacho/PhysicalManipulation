@@ -23,8 +23,8 @@ import kdbacho.physical.manipulation.models.ModelBasicElectronIsolator;
 
 public class RendererTileEntityBasicElectronIsolator extends TileEntitySpecialRenderer
 {
-	
-	//The model of your block
+	 
+    //Block Model: Basic Electron Isolator
     private final ModelBasicElectronIsolator model;
     
     public RendererTileEntityBasicElectronIsolator() 
@@ -49,22 +49,21 @@ public class RendererTileEntityBasicElectronIsolator extends TileEntitySpecialRe
             GL11.glTranslatef((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);
             
             FMLClientHandler.instance().getClient().renderEngine.bindTexture(Textures.BASIC_ELECTRON_ISOLATOR_MODEL);
-    //the ':' is very important
 
-    //This rotation part is very important! Without it, your model will render upside-down! And for some reason you DO need PushMatrix again!                       
+    //Minecraft standard tileEntity rotation fix
             GL11.glPushMatrix();
             GL11.glRotatef(180F, 0.0F, 0.0F, 1.0F);
             
-    //A reference to your Model file. Again, very important.
+    //A reference to the Model file. 
             this.model.render((Entity)null, 0.0F, 0.0F, -0.1F, 0.0F, 0.0F, 0.0625F);
             
-    //Tell it to stop rendering for both the PushMatrix's
+    //stop rendering for the PushMatrix's
             GL11.glPopMatrix();
             GL11.glPopMatrix();
     }
     
 
-    //Set the lighting stuff, so it changes it's brightness properly.       
+    //Lighting settings      
     private void adjustLightFixture(World world, int i, int j, int k, Block block) {
             Tessellator tess = Tessellator.instance;
             float brightness = block.getBlockBrightness(world, i, j, k);
