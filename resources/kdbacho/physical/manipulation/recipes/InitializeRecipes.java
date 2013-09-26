@@ -23,21 +23,21 @@ public class InitializeRecipes
     			'X', Item.ingotIron, 'C', Item.glassBottle
     		});
 		
+		//Basic Electron Isolator
 		GameRegistry.addRecipe(new ItemStack(BlockDeclarations.basicElectronIsolator), new Object[]
-				{
-			    	"IXI",
-				    "III",
-				    "XCX",
-				    'X', Block.blockIron, 'I', Item.ingotIron, 'C', ItemDeclarations.ferromagneticCell
-				});
-
-		
+		{
+		   	"IXI",
+                        "III",
+		        "XCX",
+         		'X', Block.blockIron, 'I', Item.ingotIron, 'C', ItemDeclarations.ferromagneticCell
+		});
 
        
 	}
 	
 	public static void initFurnaceRecipes()
 	{
+		//Testing neutron stone recipe
 		FurnaceRecipes.smelting().addSmelting(500, 0, new ItemStack(Item.diamond), 0.1F);
 	}
 }
